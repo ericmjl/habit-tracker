@@ -32,5 +32,6 @@ dependencies:
   - future==0.15.2
   - jinja2-time==0.1.0
   - poyo==0.2.0
+  - tinydb==3.2.0
   - whichcraft==0.4.0
 
