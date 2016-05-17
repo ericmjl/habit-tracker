@@ -3,5 +3,20 @@
 {% block page_title %}Habit Tracker{% endblock %}
 
 {% block content %}
-
+<table class="table">
+    <tr>
+    {% for col in ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %}
+        <th>
+        {{ col }}
+        </th>
+    {% endfor %}
+    </tr>
+    {% for row in [1, 2, 3, 4] %}
+        <tr>
+            {% for col in [1, 2, 3, 4, 5, 6, 7] %}
+                <td>{{ row * col }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
 {% endblock %}
