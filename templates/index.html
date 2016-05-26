@@ -3,20 +3,29 @@
 {% block page_title %}Habit Tracker{% endblock %}
 
 {% block content %}
-<table class="table">
-    <tr>
-    {% for col in ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %}
-        <th>
-        {{ col }}
-        </th>
-    {% endfor %}
-    </tr>
-    {% for row in [1, 2, 3, 4] %}
+<form>
+    <table class="table">
         <tr>
-            {% for col in [1, 2, 3, 4, 5, 6, 7] %}
-                <td>{{ row * col }}</td>
+            {% for date in dates %}
+                <th>
+                    {{ date.year }}-{{ date.month }}-{{ date.day }}
+                </th>
             {% endfor %}
         </tr>
-    {% endfor %}
-</table>
+        <tr>
+            {% for date in dates %}
+                <td>
+                    {% if date < today %}
+                        b
+                    {% elif date >= today %}
+                        <button class="btn btn-success">Abstained</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-danger">Succumbed</button>
+                    {% endif %}
+                </td>
+                {% endfor %}
+        </tr>
+    </table>
+</form>
 {% endblock %}
